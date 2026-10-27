@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-surface-muted text-ink antialiased;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-400 ring-offset-2;
+  }
+}
+
+/* 載入骨架延遲 250ms 先淡入：快嘅轉頁唔會閃一下灰塊 */
+.skeleton-delay { opacity: 0; animation: skeleton-in 0.2s ease-out 0.25s forwards; }
+@keyframes skeleton-in { to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .skeleton-delay { opacity: 1; animation: none; } }
